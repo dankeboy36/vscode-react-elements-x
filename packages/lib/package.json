@@ -1,6 +1,6 @@
 {
-  "name": "@vscode-elements/react-elements",
-  "version": "2.3.1",
+  "name": "vscode-react-elements-x",
+  "version": "0.1.0",
   "main": "./dist/main.js",
   "module": "./dist/main.js",
   "types": "./dist/main.d.ts",
@@ -10,10 +10,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vscode-elements/react-elements.git"
+    "url": "git+https://github.com/dankeboy36/vscode-react-elements-x.git"
   },
   "bugs": {
-    "url": "https://github.com/vscode-elements/react-elements/issues"
+    "url": "https://github.com/dankeboy36/vscode-react-elements-x/issues"
   },
   "scripts": {
     "clean": "rimraf --glob vscode-elements-react-elements-*.tgz && rimraf dist",
@@ -21,21 +21,36 @@
     "build:watch": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "npm run build",
-    "link": "npm link @vscode-elements/elements"
+    "link": "npm link vscode-elements-x",
+    "release": "semantic-release"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "dankeboy36",
+  "license": "MIT",
   "description": "",
   "devDependencies": {
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/exec": "^7.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.0",
+    "@semantic-release/npm": "^13.0.0",
+    "@semantic-release/release-notes-generator": "^14.1.0",
     "rimraf": "^6.0.1",
-    "typescript": "^5.8.3"
+    "semantic-release": "^25.0.1",
+    "typescript": "^5.8.3",
+    "vscode-elements-x": "^0.1.1"
   },
   "dependencies": {
-    "@lit/react": "^1.0.7",
-    "@vscode-elements/elements": "^2.3.0"
+    "@lit/react": "^1.0.7"
   },
   "peerDependencies": {
     "react": "17 || 18 || 19",
-    "react-dom": "17 || 18 || 19"
+    "react-dom": "17 || 18 || 19",
+    "vscode-elements-x": "^0.1 || ^1.0"
+  },
+  "peerDependenciesMeta": {
+    "vscode-elements-x": {
+      "optional": false
+    }
   }
 }
