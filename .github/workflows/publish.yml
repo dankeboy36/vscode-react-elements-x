@@ -1,0 +1,58 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - x
+
+permissions:
+  contents: write
+  issues: write
+  packages: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    needs: [build]
+    outputs:
+      release_version: ${{ steps.release.outputs.release_version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            ./packages/lib/package-lock.json
+
+      - name: Install Dependencies
+        working-directory: ./packages/lib
+        run: npm ci
+
+      - name: Build
+        working-directory: ./packages/lib
+        run: npm run build
+
+      - name: Load secrets from 1Password
+        id: load_secrets
+        uses: 1password/load-secrets-action@v3
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          GITHUB_TOKEN: op://cicd_dankeboy36/GITHUB_TOKEN/credential
+          NPM_TOKEN: op://cicd_dankeboy36/NPM_TOKEN/credential
+
+      - name: Release
+        id: release
+        working-directory: ./packages/lib
+        run: npm run release
+        env:
+          GITHUB_TOKEN: ${{ steps.load_secrets.outputs.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ steps.load_secrets.outputs.NPM_TOKEN }}
