@@ -1,0 +1,32 @@
+name: Verify PR
+
+on: pull_request
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            ./packages/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./packages/lib
+        run: npm ci
+
+      - name: Build
+        working-directory: ./packages/lib
+        run: npm run build
