@@ -31,7 +31,7 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: |
-            ./packages/package-lock.json
+            ./packages/lib/package-lock.json
 
       - name: Install Dependencies
         working-directory: ./packages/lib
