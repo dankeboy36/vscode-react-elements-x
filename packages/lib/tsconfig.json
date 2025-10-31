@@ -102,5 +102,19 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  },
+  "tsc-alias": {
+    "replacers": {
+      "default": {
+        "enabled": false
+      },
+      "base-url": {
+        "enabled": false
+      },
+      "vscodeElementsReplacer": {
+        "enabled": true,
+        "file": "./scripts/vscodeElementsReplacer.cjs"
+      }
+    }
   }
 }
