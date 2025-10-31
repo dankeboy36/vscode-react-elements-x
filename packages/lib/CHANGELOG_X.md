@@ -1,5 +1,12 @@
 # Changelog X
 
+## [0.1.1](https://github.com/dankeboy36/vscode-react-elements-x/compare/0.1.0...0.1.1) (2025-10-31)
+
+
+### Bug Fixes
+
+* alias back to `vscode-elements-x` after `tsc` ([#4](https://github.com/dankeboy36/vscode-react-elements-x/issues/4)) ([67c27bd](https://github.com/dankeboy36/vscode-react-elements-x/commit/67c27bd03b236827c836a6d3711ba44b0369dc5e))
+
 # [0.1.0](https://github.com/dankeboy36/vscode-react-elements-x/compare/0.0.1...0.1.0) (2025-10-30)
 
 
