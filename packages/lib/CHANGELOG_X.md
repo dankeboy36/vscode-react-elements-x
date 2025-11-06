@@ -1,5 +1,12 @@
 # Changelog X
 
+## [0.1.2](https://github.com/dankeboy36/vscode-react-elements-x/compare/0.1.1...0.1.2) (2025-11-06)
+
+
+### Bug Fixes
+
+* export `<VscodeButtonGroup>` ([#5](https://github.com/dankeboy36/vscode-react-elements-x/issues/5)) ([489f3be](https://github.com/dankeboy36/vscode-react-elements-x/commit/489f3be1c89d7cbacf3f515878d30c86273f0fb9)), closes [vscode-elements/react-elements#20](https://github.com/vscode-elements/react-elements/issues/20)
+
 ## [0.1.1](https://github.com/dankeboy36/vscode-react-elements-x/compare/0.1.0...0.1.1) (2025-10-31)
 
 
